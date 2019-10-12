@@ -205,6 +205,9 @@
                                                                         <state key="normal" title="Events">
                                                                             <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="eventsButtonPress:" destination="Lsp-vq-HHQ" eventType="touchDown" id="fzg-0v-60Z"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -261,6 +264,14 @@
                         <viewLayoutGuide key="safeArea" id="TFd-95-DP5"/>
                     </view>
                     <navigationItem key="navigationItem" id="tcp-Ci-6zP"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="xFF-Qi-M3B" id="adQ-l0-kQ5"/>
+                        <outlet property="eventsButton" destination="BzD-rp-ny0" id="EDy-qX-Zxj"/>
+                        <outlet property="firstnameTextField" destination="LZJ-CD-8kL" id="j6q-bn-iWo"/>
+                        <outlet property="lastnameTextField" destination="ey9-BE-Ydd" id="nQ0-9x-leG"/>
+                        <outlet property="levelTextField" destination="P67-ed-p31" id="C8r-kS-pOf"/>
+                        <outlet property="userImage" destination="d6E-M7-PcB" id="gsc-Fl-zba"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jt5-yd-6vP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
