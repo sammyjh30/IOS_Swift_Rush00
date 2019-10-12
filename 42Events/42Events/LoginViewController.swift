@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPress(_ sender: Any) {
 //        https://CeckUserHere
         let loadicon = loadingIconStart()
-        if usernameTextField.text! != "" && passwdTextField.text! != "" {
+        if usernameTextField.text! == "" && passwdTextField.text! == "" {
             loadLoggedInScreen()
             loadingIconStop(activityIndicator: loadicon)
             

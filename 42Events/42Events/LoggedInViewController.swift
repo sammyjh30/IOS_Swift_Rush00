@@ -26,6 +26,7 @@ class LoggedInViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationItem.leftBarButtonItem?.title = "Logout"
         viewWillDisappear(false)
     }
     

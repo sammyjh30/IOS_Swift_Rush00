@@ -183,7 +183,7 @@
                                                         </constraints>
                                                     </progressView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rtS-Yb-ZAK">
-                                                        <rect key="frame" x="0.0" y="105" width="355" height="331.5"/>
+                                                        <rect key="frame" x="0.0" y="105" width="355" height="329"/>
                                                         <subviews>
                                                             <view tag="27" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwq-rC-EMi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="20"/>
@@ -212,12 +212,12 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqf-HK-ndQ">
-                                                                <rect key="frame" x="0.0" y="50" width="355" height="281.5"/>
+                                                                <rect key="frame" x="0.0" y="50" width="355" height="279"/>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gm-Rs-yYd">
-                                                        <rect key="frame" x="0.0" y="436.5" width="355" height="8.5"/>
+                                                        <rect key="frame" x="0.0" y="434" width="355" height="11"/>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
