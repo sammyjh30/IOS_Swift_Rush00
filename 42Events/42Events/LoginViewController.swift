@@ -33,24 +33,32 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginButtonPress(_ sender: Any) {
 //        https://CeckUserHere
-        let test = loadingIconStart()
+        let loadicon = loadingIconStart()
         if usernameTextField.text! != "" && passwdTextField.text! != "" {
             loadHomeScreen()
-            loadingIconStop(activityIndicator: test)
+            loadingIconStop(activityIndicator: loadicon)
+            
         }
         else {
             let alert = AlertHelper()
             alert.showAlert(fromController: self)
+            loadingIconStop(activityIndicator: loadicon)
         }
     }
     
-//    VIEW_DID_LOAD
+//    View_Did_Load
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameTextField.text = ""
         passwdTextField.text = ""
 
 //        if UIDevice.current.orientation.isLandscape {}
+    }
+    
+//    Hides Navbar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     func loadingIconStart () -> UIActivityIndicatorView {

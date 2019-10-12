@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="887" y="107"/>
         </scene>
-        <!--Profile-->
+        <!--Logged In View Controller-->
         <scene sceneID="gml-vp-1YW">
             <objects>
-                <viewController storyboardIdentifier="LoggedInViewController" title="Profile" id="Lsp-vq-HHQ" customClass="LoggedInViewController" customModule="_2Events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoggedInViewController" title="Logged In View Controller" id="Lsp-vq-HHQ" customClass="LoggedInViewController" customModule="_2Events" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oQu-tk-44R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,7 +260,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TFd-95-DP5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="tcp-Ci-6zP"/>
+                    <navigationItem key="navigationItem" id="tcp-Ci-6zP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jt5-yd-6vP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
