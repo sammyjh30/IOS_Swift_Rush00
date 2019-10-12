@@ -9,6 +9,7 @@
 import UIKit
 
 class AlertHelper {
+//    ALERT_MESSAGE
     func showAlert(fromController controller: UIViewController) {
         let alert = UIAlertController(title: "Error", message: "Invalid Login or Password.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -35,7 +36,7 @@ class LoginViewController: UIViewController {
 //        https://CeckUserHere
         let loadicon = loadingIconStart()
         if usernameTextField.text! != "" && passwdTextField.text! != "" {
-            loadHomeScreen()
+            loadLoggedInScreen()
             loadingIconStop(activityIndicator: loadicon)
             
         }
@@ -46,7 +47,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-//    View_Did_Load
+//    View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameTextField.text = ""
@@ -61,6 +62,7 @@ class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+//    Loads Icon
     func loadingIconStart () -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         activityIndicator.color = UIColor.white
@@ -70,11 +72,13 @@ class LoginViewController: UIViewController {
         return activityIndicator
     }
     
+//    Stops Icon Load
     func loadingIconStop(activityIndicator: UIActivityIndicatorView) {
         activityIndicator.stopAnimating()
     }
     
-    func loadHomeScreen() {
+//    Loads Logged In Screen
+    func loadLoggedInScreen() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
         self.navigationController?.pushViewController(loggedInViewController, animated: true)
