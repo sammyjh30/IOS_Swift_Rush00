@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class AlertHelper {
 //    ALERT_MESSAGE
     func showAlert(fromController controller: UIViewController) {
@@ -32,15 +31,16 @@ class LoginViewController: UIViewController {
     
 //    LOGIN_BUTTON
     @IBOutlet weak var loginButton: UIButton!
+    let client = Client()
     @IBAction func loginButtonPress(_ sender: Any) {
 //        https://CeckUserHere
         let loadicon = loadingIconStart()
         if usernameTextField.text! != "" && passwdTextField.text! != "" {
             //BEGIN LOGIN PROCESS
             loginUser(input: usernameTextField.text!)
-            loadLoggedInScreen()
-            loadingIconStop(activityIndicator: loadicon)
-
+            sleep(2)
+            self.loadLoggedInScreen()
+            self.loadingIconStop(activityIndicator: loadicon)
         }
         else {
             let alert = AlertHelper()
@@ -59,12 +59,13 @@ class LoginViewController: UIViewController {
            print("User is \(input)")
         }
         
-        let client = Client()
+        
+
         //get token
         client.genTok{ (token) in
             print("Token is \(token)")
             //user requests in here with token
-            client.getUserInfo(token: token, username: "\(input)") { firstName,lastName,login,photo  in
+            self.client.getUserInfo(token: token, username: "\(input)") { firstName,lastName,login,photo  in
                 print("User found with Firstname: \(firstName), Lastname: \(lastName), Login: \(login) Photo: \(photo)")
             }
         }
@@ -73,8 +74,8 @@ class LoginViewController: UIViewController {
 //    View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTextField.text = ""
-        passwdTextField.text = ""
+        usernameTextField.text = "agabrie"
+        passwdTextField.text = "ajbaDOIUB"
 
 //        if UIDevice.current.orientation.isLandscape {}
     }
@@ -104,6 +105,7 @@ class LoginViewController: UIViewController {
     func loadLoggedInScreen() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
+        loggedInViewController.clientlogged = client
         self.navigationController?.pushViewController(loggedInViewController, animated: true)
 //        self.present(loggedInViewController, animated: true, completion: nil)
     }

@@ -271,11 +271,12 @@
                         <outlet property="lastnameTextField" destination="ey9-BE-Ydd" id="nQ0-9x-leG"/>
                         <outlet property="levelTextField" destination="P67-ed-p31" id="C8r-kS-pOf"/>
                         <outlet property="userImage" destination="d6E-M7-PcB" id="gsc-Fl-zba"/>
+                        <outlet property="userLoginTextField" destination="9TT-bs-c3q" id="ZCh-eD-AQJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jt5-yd-6vP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="96.7016491754123"/>
+            <point key="canvasLocation" x="1692" y="107"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sDS-yL-yCG">

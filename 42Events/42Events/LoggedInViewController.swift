@@ -13,11 +13,13 @@ class LoggedInViewController: UIViewController {
 //    IMAGES
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    
-//    TEXT_FIELD
-    @IBOutlet weak var firstnameTextField: UILabel!
-    @IBOutlet weak var lastnameTextField: UILabel!
-    @IBOutlet weak var levelTextField: UILabel!
+    var clientlogged:Client = Client()
+    var username:String! = ""
+    @IBOutlet var userLoginTextField: UILabel?
+    //    TEXT_FIELD
+    @IBOutlet weak var firstnameTextField: UILabel?
+    @IBOutlet weak var lastnameTextField: UILabel?
+    @IBOutlet weak var levelTextField: UILabel?
     
 //    EVENTS_BUTTON
     @IBOutlet weak var eventsButton: UIButton!
@@ -27,6 +29,9 @@ class LoggedInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewWillDisappear(false)
+        userLoginTextField?.text = clientlogged.userLogin
+        firstnameTextField?.text = clientlogged.userFirstName
+        lastnameTextField?.text = clientlogged.userLastName
     }
     
 //    Shows Navbar
