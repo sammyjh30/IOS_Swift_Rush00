@@ -9,8 +9,8 @@
 import UIKit
 class AlertHelper {
 //    ALERT_MESSAGE
-    func showAlert(fromController controller: UIViewController) {
-        let alert = UIAlertController(title: "Error", message: "Invalid Login or Password.", preferredStyle: .alert)
+    func showAlert(fromController controller: UIViewController, messages: String) {
+        let alert = UIAlertController(title: "Error", message: messages, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         controller.present(alert, animated: true, completion: nil)
     }
@@ -32,20 +32,26 @@ class LoginViewController: UIViewController {
 //    LOGIN_BUTTON
     @IBOutlet weak var loginButton: UIButton!
     let client = Client()
+    let conn:APIConnection = APIConnection()
     @IBAction func loginButtonPress(_ sender: Any) {
-        let loadicon = loadingIconStart()
+        let loadIcon = loadingIconStart()
         if usernameTextField.text! != "" && passwdTextField.text! != "" {
             //BEGIN LOGIN PROCESS
             loginUser(input: usernameTextField.text!)
             sleep(2)
-            self.loadLoggedInScreen()
-            self.loadingIconStop(activityIndicator: loadicon)
+            if (client.userFirstName != "") {
+                self.loadLoggedInScreen()
+            }
+            else {
+                let alert = AlertHelper()
+                alert.showAlert(fromController: self, messages: "Invalid Login or Password.")
+            }
         }
         else {
             let alert = AlertHelper()
-            alert.showAlert(fromController: self)
-            loadingIconStop(activityIndicator: loadicon)
+            alert.showAlert(fromController: self, messages: "Empty Fields")
         }
+        loadingIconStop(activityIndicator: loadIcon)
     }
 
 //LOGIN USER, GET TOKEN, GET USER DATA
@@ -58,10 +64,8 @@ class LoginViewController: UIViewController {
            print("User is \(input)")
         }
 
-
-
         //get token
-        client.genTok{ (token) in
+        conn.genTok{ (token) in
             print("Token is \(token)")
             //user requests in here with token
             self.client.getUserInfo(token: token, username: "\(input)") { firstName,lastName,login,photo,userLevel, cursusNames,cursusLevels  in
@@ -76,9 +80,8 @@ class LoginViewController: UIViewController {
 //    View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTextField.text = "agabrie"
-        passwdTextField.text = "ajbaDOIUB"
-
+        usernameTextField.text = ""
+        passwdTextField.text = ""
 //        if UIDevice.current.orientation.isLandscape {}
     }
 
@@ -108,6 +111,7 @@ class LoginViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
         loggedInViewController.clientlogged = client
+        loggedInViewController.connection = conn
         self.navigationController?.pushViewController(loggedInViewController, animated: true)
 //        self.present(loggedInViewController, animated: true, completion: nil)
     }
