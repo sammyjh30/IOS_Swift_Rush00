@@ -75,6 +75,7 @@
                         <viewLayoutGuide key="safeArea" id="cvQ-Ia-sk5"/>
                     </view>
                     <navigationItem key="navigationItem" id="ghK-bf-1lM">
+                        <barButtonItem key="backBarButtonItem" title="Logout" id="1DB-no-FAJ"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="C2x-JP-cJ4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CL9-KJ-b5w">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
