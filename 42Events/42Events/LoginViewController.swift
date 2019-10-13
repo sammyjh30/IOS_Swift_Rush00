@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
         client.genTok{ (token) in
             print("Token is \(token)")
             //user requests in here with token
-            client.getUserInfo(token: token, username: "\(input)") { firstName,lastName,login,photo,userLevel, cursusNames,cursusLevels  in
+            self.client.getUserInfo(token: token, username: "\(input)") { firstName,lastName,login,photo,userLevel, cursusNames,cursusLevels  in
                 print("User found with Firstname: \(firstName), Lastname: \(lastName), Login: \(login) Photo: \(photo) Userlevel: \(userLevel), CursusNames: \(cursusNames), CursusLevels: \(cursusLevels)")
             }
         }
