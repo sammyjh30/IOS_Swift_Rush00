@@ -36,14 +36,37 @@ class LoginViewController: UIViewController {
 //        https://CeckUserHere
         let loadicon = loadingIconStart()
         if usernameTextField.text! != "" && passwdTextField.text! != "" {
+            //BEGIN LOGIN PROCESS
+            loginUser(input: usernameTextField.text!)
             loadLoggedInScreen()
             loadingIconStop(activityIndicator: loadicon)
-            
+
         }
         else {
             let alert = AlertHelper()
             alert.showAlert(fromController: self)
             loadingIconStop(activityIndicator: loadicon)
+        }
+    }
+    
+//LOGIN USER, GET TOKEN, GET USER DATA
+    func loginUser(input: String) {
+        if input == "" {
+            print("No username entered")
+            return
+        }
+        else {
+           print("User is \(input)")
+        }
+        
+        let client = Client()
+        //get token
+        client.genTok{ (token) in
+            print("Token is \(token)")
+            //user requests in here with token
+            client.getUserInfo(token: token, username: "\(input)") { firstName,lastName,login,photo  in
+                print("User found with Firstname: \(firstName), Lastname: \(lastName), Login: \(login) Photo: \(photo)")
+            }
         }
     }
     
