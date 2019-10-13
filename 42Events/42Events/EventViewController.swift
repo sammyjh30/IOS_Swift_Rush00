@@ -8,6 +8,15 @@
 
 import UIKit
 
+class AlertInfo {
+//    ALERT_MESSAGE
+    func showAlert(fromController controller: UIViewController, messages: String) {
+        let alert = UIAlertController(title: "Info", message: messages, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "FeelsBadMan", style: .cancel, handler: nil))
+        controller.present(alert, animated: true, completion: nil)
+    }
+}
+
 class EventViewController: UIViewController {
 
     @IBOutlet var name: UILabel!
@@ -20,6 +29,11 @@ class EventViewController: UIViewController {
     @IBOutlet var dura: UITextField!
     @IBOutlet var locn: UITextField!
     @IBOutlet var kind: UITextField!
+    @IBOutlet weak var subS: UIButton!
+    @IBAction func subSButtonPress(_ sender: Any) {
+        let alert = AlertInfo()
+        alert.showAlert(fromController: self, messages: "Would be able to subscribe if possible.")
+    }
     
     var data: CellData?
     

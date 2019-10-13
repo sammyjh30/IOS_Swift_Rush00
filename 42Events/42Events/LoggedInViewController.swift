@@ -57,6 +57,7 @@ class LoggedInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        self.navigationController?.navigationBar.backItem?.title = "Logout"
 //        self.navigationItem.leftBarButtonItem?.title = "Logout"
         viewWillDisappear(false)
         userLoginTextLabel?.text = clientlogged.userLogin

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kko-xc-Vqy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kko-xc-Vqy">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -507,7 +507,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hCg-2Y-hLI"/>
                     </view>
-                    <navigationItem key="navigationItem" id="L5q-W7-sPu"/>
+                    <navigationItem key="navigationItem" id="L5q-W7-sPu">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Oh6-Uw-bjW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ttl-LH-gXp">
+                                <rect key="frame" x="276" y="4" width="83" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29130007870000002" green="0.6631594649" blue="0.67581602519999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Subscribe">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="subSButtonPress:" destination="Lyu-gO-Nse" eventType="touchDown" id="Bmr-Wx-t5P"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="750"/>
                     <connections>
                         <outlet property="bTim" destination="gRo-D2-0rk" id="MOC-LZ-zkj"/>
@@ -520,6 +535,7 @@
                         <outlet property="mSub" destination="XXk-o5-RMr" id="uFV-ZN-71H"/>
                         <outlet property="nSub" destination="7Eo-9I-i27" id="vTN-M4-KIQ"/>
                         <outlet property="name" destination="3d7-wz-hpx" id="xmM-P3-NI7"/>
+                        <outlet property="subS" destination="Ttl-LH-gXp" id="JY9-yJ-2fc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtG-tJ-y2D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
