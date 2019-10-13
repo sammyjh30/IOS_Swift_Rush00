@@ -14,34 +14,28 @@ class LoggedInViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     var clientlogged:Client = Client()
-    var username:String! = ""
-    @IBOutlet var userLoginTextField: UILabel?
+    @IBOutlet weak var userLoginTextLabel: UILabel!
+    
     //    TEXT_FIELD
-    @IBOutlet weak var firstnameTextField: UILabel?
-    @IBOutlet weak var lastnameTextField: UILabel?
-    @IBOutlet weak var levelTextField: UILabel?
+    @IBOutlet weak var firstnameTextLabel: UILabel!
+    @IBOutlet weak var lastnameTextLabel: UILabel!
+    @IBOutlet weak var levelTextLabel: UILabel!
+
+    
 
 //    EVENTS_BUTTON
-    @IBOutlet weak var eventsButton: UIButton!
+    @IBOutlet weak var eventButton: UIButton!
     @IBAction func eventsButtonPress(_ sender: Any) {
     }
-
-    var firstname:String = ""
-    var lastname:String = ""
-    var level:String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        firstnameTextField?.text = firstname
-        lastnameTextField?.text = lastname
-        levelTextField?.text = level
-
 //        self.navigationItem.leftBarButtonItem?.title = "Logout"
         viewWillDisappear(false)
-        userLoginTextField?.text = clientlogged.userLogin
-        firstnameTextField?.text = clientlogged.userFirstName
-        lastnameTextField?.text = clientlogged.userLastName
+        userLoginTextLabel?.text = clientlogged.userLogin
+        firstnameTextLabel?.text = clientlogged.userFirstName
+        lastnameTextLabel?.text = clientlogged.userLastName
     }
 
 //    Shows Navbar
