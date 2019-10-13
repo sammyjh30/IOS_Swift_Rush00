@@ -11,32 +11,82 @@ import UIKit
 class LoggedInViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //    IMAGES
     @IBOutlet weak var userImage: UIImageView!
+    var clientlogged:Client = Client()
     @IBOutlet weak var backgroundImage: UIImageView!
+    var connection:APIConnection = APIConnection()
+    @IBOutlet weak var userLoginTextLabel: UILabel!
     
     //    TEXT_FIELD
-    @IBOutlet weak var firstnameTextField: UILabel!
-    @IBOutlet weak var lastnameTextField: UILabel!
-    @IBOutlet weak var levelTextField: UILabel!
+    @IBOutlet weak var firstnameTextLabel: UILabel!
+    @IBOutlet weak var lastnameTextLabel: UILabel!
+    @IBOutlet weak var levelTextLabel: UILabel!
+    @IBOutlet weak var levelProgressBar: UIProgressView!
+    
+    
     
     //    EVENTS_BUTTON
-    @IBOutlet weak var eventsButton: UIButton!
+    @IBOutlet weak var eventButton: UIButton!
+    @IBAction func eventsButtonPress(_ sender: Any) {
+        //load events
+        getEvents()
+        sleep(2)
+        loadEventsScreen()
+    }
     
-    //    CURSUS TABLE
+    //     CURSUS TABLE
     @IBOutlet weak var cursusTableView: UITableView!
-    var testCursus: [String] = ["Algos" ,"Graphics", "Unity", "Web", "Cloud"]
-    var testCursusLevel: [Double] = [0.99 ,0.50, 0.00, 0.01, 0.23]
     //a list to store DataModel
     var dataModels = [DataModel]()
     
-    @IBAction func eventsButtonPress(_ sender: Any) {
+    
+    
+    func getEvents() {
+        //get token
+        connection.genTok{ (token) in
+            print("Token is \(token)")
+            //user requests in here with token
+            self.clientlogged.getEventsInfo(token: token) { events in
+                //                print("EVENTS")
+            }
+        }
     }
+    
+    func loadEventsScreen() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let eventTableViewController = storyBoard.instantiateViewController(withIdentifier: "EventTableViewController") as! EventTableViewController
+        eventTableViewController.client = clientlogged
+        eventTableViewController.conn = connection
+        self.navigationController?.pushViewController(eventTableViewController, animated: true)
+        //        self.present(loggedInViewController, animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewWillDisappear(false)
         
-        for i in 0..<5{
+        //        self.navigationItem.leftBarButtonItem?.title = "Logout"
+        viewWillDisappear(false)
+        userLoginTextLabel?.text = clientlogged.userLogin
+        firstnameTextLabel?.text = clientlogged.userFirstName
+        lastnameTextLabel?.text = clientlogged.userLastName
+        levelTextLabel?.text = "Level " + String(Int(clientlogged.userLevel))
+        levelProgressBar?.progress = Float(clientlogged.userLevel - Double(Int(clientlogged.userLevel)))
+        
+        let activityView = UIActivityIndicatorView(style: .large)
+        activityView.center = userImage.center
+        userImage.addSubview(activityView)
+        activityView.startAnimating()
+        
+        if (self.verifyUrl(urlString: clientlogged.userPhoto)) {
+            load_image(clientlogged.userPhoto, imageview:userImage, activityView:activityView)
+        } else {
+            let alert = AlertHelper()
+            alert.showAlert(fromController: self, messages: "Error loading user image.")
+        }
+        
+        for i in 0..<clientlogged.cursusNames.count{
             
-            self.dataModels.append(DataModel(cursusLabel: testCursus[i], cursusBarValue: testCursusLevel[i]))
+            self.dataModels.append(DataModel(cursusLabel: clientlogged.cursusNames[i], cursusBarValue: (clientlogged.cursusLevels[i] / 20)))
             //displaying data in tableview
             self.cursusTableView.reloadData()
             
@@ -75,6 +125,57 @@ class LoggedInViewController: UIViewController, UITableViewDataSource, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func verifyUrl(urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if let url = URL(string: urlString) {
+                return UIApplication.shared.canOpenURL(url)
+            }
+        }
+        return false
+    }
+    
+    func load_image(_ link:String, imageview:UIImageView,  activityView: UIActivityIndicatorView)
+    {
+        
+        let url:URL = URL(string: link)!
+        
+        let session = URLSession.shared
+        
+        let request = NSMutableURLRequest(url: url)
+        request.timeoutInterval = 10
+        
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
+            guard let _:Data = data, let _:URLResponse = response, error == nil else {
+                var alert = AlertHelper()
+                alert.showAlert(fromController: self, messages: "Invalid image")
+                
+                return
+            }
+            
+            print("Download Started")
+            var image = UIImage(data: data!)
+            //            activityView.stopAnimating()
+            
+            if (image != nil) {
+                func set_image()
+                {
+                    //                    self.images_cache[link] = image
+                    imageview.image = image
+                    
+                    activityView.stopAnimating()
+                    //                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    
+                }
+                print("Download Finished")
+                DispatchQueue.main.async(execute: set_image)
+            }
+        })
+        
+        task.resume()
+        
     }
 }
 

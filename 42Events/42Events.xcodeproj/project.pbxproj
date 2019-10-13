@@ -12,12 +12,16 @@
 		2736DA3A23535D7B00DD91AC /* CursusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736DA3923535D7B00DD91AC /* CursusTableViewController.swift */; };
 		27C5E8642351D3D400E32B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5E8632351D3D400E32B1A /* AppDelegate.swift */; };
 		27C5E8662351D3D400E32B1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5E8652351D3D400E32B1A /* SceneDelegate.swift */; };
-		27C5E8682351D3D400E32B1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5E8672351D3D400E32B1A /* ViewController.swift */; };
+		27C5E8682351D3D400E32B1A /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5E8672351D3D400E32B1A /* EventViewController.swift */; };
 		27C5E86B2351D3D400E32B1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C5E8692351D3D400E32B1A /* Main.storyboard */; };
 		27C5E86D2351D3D800E32B1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C5E86C2351D3D800E32B1A /* Assets.xcassets */; };
 		27C5E8702351D3D800E32B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C5E86E2351D3D800E32B1A /* LaunchScreen.storyboard */; };
 		27C5E87B2351D3D800E32B1A /* _2EventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5E87A2351D3D800E32B1A /* _2EventsTests.swift */; };
 		27C5E8862351D3D800E32B1A /* _2EventsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5E8852351D3D800E32B1A /* _2EventsUITests.swift */; };
+		62B5140323533B4900FBFD18 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5140223533B4900FBFD18 /* EventCell.swift */; };
+		62B5140623533E8800FBFD18 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5140523533E8800FBFD18 /* EventTableViewController.swift */; };
+		4044C1222352FB9800819EDE /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044C1212352FB9800819EDE /* EventData.swift */; };
+		40CE7B1323536224002B9302 /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE7B1223536224002B9302 /* APIConnection.swift */; };
 		673C702C2352282F00608C2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673C70292352282E00608C2C /* LoginViewController.swift */; };
 		673C702D2352282F00608C2C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673C702A2352282E00608C2C /* Extensions.swift */; };
 		EA609DAB2352492F002F3B36 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA609DAA2352492F002F3B36 /* Services.swift */; };
@@ -47,7 +51,7 @@
 		27C5E8602351D3D400E32B1A /* 42Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 42Events.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C5E8632351D3D400E32B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27C5E8652351D3D400E32B1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		27C5E8672351D3D400E32B1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		27C5E8672351D3D400E32B1A /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		27C5E86A2351D3D400E32B1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27C5E86C2351D3D800E32B1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27C5E86F2351D3D800E32B1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +62,10 @@
 		27C5E8812351D3D800E32B1A /* 42EventsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 42EventsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C5E8852351D3D800E32B1A /* _2EventsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _2EventsUITests.swift; sourceTree = "<group>"; };
 		27C5E8872351D3D800E32B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62B5140223533B4900FBFD18 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		62B5140523533E8800FBFD18 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		4044C1212352FB9800819EDE /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
+		40CE7B1223536224002B9302 /* APIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnection.swift; sourceTree = "<group>"; };
 		673C70292352282E00608C2C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		673C702A2352282E00608C2C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EA609DAA2352492F002F3B36 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -113,8 +121,11 @@
 			children = (
 				2736DA35235350E700DD91AC /* CursusTableViewCell.swift */,
 				27C5E8632351D3D400E32B1A /* AppDelegate.swift */,
+				4044C1212352FB9800819EDE /* EventData.swift */,
 				27C5E8652351D3D400E32B1A /* SceneDelegate.swift */,
-				27C5E8672351D3D400E32B1A /* ViewController.swift */,
+				27C5E8672351D3D400E32B1A /* EventViewController.swift */,
+				62B5140523533E8800FBFD18 /* EventTableViewController.swift */,
+				62B5140223533B4900FBFD18 /* EventCell.swift */,
 				673C702A2352282E00608C2C /* Extensions.swift */,
 				2736DA3723535CE500DD91AC /* LoggedInViewController.swift */,
 				673C70292352282E00608C2C /* LoginViewController.swift */,
@@ -124,6 +135,7 @@
 				27C5E86E2351D3D800E32B1A /* LaunchScreen.storyboard */,
 				27C5E8712351D3D800E32B1A /* Info.plist */,
 				EA609DAA2352492F002F3B36 /* Services.swift */,
+				40CE7B1223536224002B9302 /* APIConnection.swift */,
 			);
 			path = 42Events;
 			sourceTree = "<group>";
@@ -280,11 +292,16 @@
 				673C702D2352282F00608C2C /* Extensions.swift in Sources */,
 				673C702C2352282F00608C2C /* LoginViewController.swift in Sources */,
 				2736DA3A23535D7B00DD91AC /* CursusTableViewController.swift in Sources */,
+				2736DA36235350E700DD91AC /* CursusTableViewCell.swift in Sources */,
+				2736DA3823535CE500DD91AC /* LoggedInViewController.swift in Sources */,
+				27C5E8682351D3D400E32B1A /* EventViewController.swift in Sources */,
+				4044C1222352FB9800819EDE /* EventData.swift in Sources */,
+				40CE7B1323536224002B9302 /* APIConnection.swift in Sources */,
 				27C5E8682351D3D400E32B1A /* ViewController.swift in Sources */,
 				EA609DAB2352492F002F3B36 /* Services.swift in Sources */,
-				2736DA36235350E700DD91AC /* CursusTableViewCell.swift in Sources */,
+				62B5140323533B4900FBFD18 /* EventCell.swift in Sources */,
 				27C5E8642351D3D400E32B1A /* AppDelegate.swift in Sources */,
-				2736DA3823535CE500DD91AC /* LoggedInViewController.swift in Sources */,
+				62B5140623533E8800FBFD18 /* EventTableViewController.swift in Sources */,
 				27C5E8662351D3D400E32B1A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,7 +514,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = 42EventsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,7 +535,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = 42EventsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
