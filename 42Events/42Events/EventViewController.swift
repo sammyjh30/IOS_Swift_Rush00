@@ -21,7 +21,7 @@ class EventViewController: UIViewController {
     @IBOutlet var locn: UITextField!
     @IBOutlet var kind: UITextField!
     
-    var data: CellData?
+    var data: EventData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +29,20 @@ class EventViewController: UIViewController {
 
         name.text = data?.name
         name.isUserInteractionEnabled = false
-        nSub.text = data?.nSub
+        nSub.text = "\(String(describing: data?.nbr_subs!))"
         nSub.isUserInteractionEnabled = false
-        mSub.text = data?.mSub
+        mSub.text = "\(String(describing: data?.max_subs!))"
         mSub.isUserInteractionEnabled = false
         desc.text = data?.desc
-        date.text = data?.date
+        date.text = data?.begin_at
         date.isUserInteractionEnabled = false
-        bTim.text = data?.bTim
+        bTim.text = data?.begin_at
         bTim.isUserInteractionEnabled = false
-        eTim.text = data?.eTim
+        eTim.text = data?.end_at
         eTim.isUserInteractionEnabled = false
-        dura.text = data?.dura
+        dura.text = "date formatter here"
         dura.isUserInteractionEnabled = false
-        locn.text = data?.locn
+        locn.text = data?.location
         locn.isUserInteractionEnabled = false
         kind.text = data?.kind
         kind.isUserInteractionEnabled = false
