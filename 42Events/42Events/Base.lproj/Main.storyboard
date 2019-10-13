@@ -182,6 +182,49 @@
                                                 <rect key="frame" x="8" y="220" width="359" height="395"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.29803921568627451" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="2wb-DD-o3p" customClass="CursusTableViewCell" customModule="_2Events" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="359" height="41.5"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2wb-DD-o3p" id="Crq-Ox-gOz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="41.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8O-Dx-WID">
+                                                                    <rect key="frame" x="15" y="10" width="80" height="21.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="80" id="QFM-uL-jpE"/>
+                                                                        <constraint firstAttribute="height" constant="21" id="STy-9H-QaV"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kCS-Ab-HMW">
+                                                                    <rect key="frame" x="110" y="10" width="239" height="21.5"/>
+                                                                    <color key="progressTintColor" red="0.32548981900000001" green="0.71752810479999996" blue="0.72942310570000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </progressView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="u8O-Dx-WID" firstAttribute="leading" secondItem="Crq-Ox-gOz" secondAttribute="leading" constant="15" id="ACC-Iv-8ZW"/>
+                                                                <constraint firstAttribute="trailing" secondItem="kCS-Ab-HMW" secondAttribute="trailing" constant="10" id="ECe-MJ-c1z"/>
+                                                                <constraint firstAttribute="bottom" secondItem="kCS-Ab-HMW" secondAttribute="bottom" constant="10" id="HhL-S3-2f2"/>
+                                                                <constraint firstItem="kCS-Ab-HMW" firstAttribute="leading" secondItem="u8O-Dx-WID" secondAttribute="trailing" constant="15" id="Mwe-lw-3jC"/>
+                                                                <constraint firstItem="kCS-Ab-HMW" firstAttribute="top" secondItem="Crq-Ox-gOz" secondAttribute="top" constant="10" id="TZm-gY-Agd"/>
+                                                                <constraint firstAttribute="bottom" secondItem="u8O-Dx-WID" secondAttribute="bottom" constant="10" id="bYw-lg-EeE"/>
+                                                                <constraint firstItem="u8O-Dx-WID" firstAttribute="top" secondItem="Crq-Ox-gOz" secondAttribute="top" constant="10" id="fL7-ym-iiK"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="cursusBar" destination="kCS-Ab-HMW" id="Vjr-7Z-C3b"/>
+                                                            <outlet property="cursusLabel" destination="u8O-Dx-WID" id="AaA-Vr-NjB"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="374-JV-Weo" id="sxA-Pj-O4R"/>
+                                                    <outlet property="delegate" destination="374-JV-Weo" id="0fs-1u-cLD"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <constraints>
@@ -199,7 +242,7 @@
                                             <constraint firstItem="ey9-BE-Ydd" firstAttribute="leading" secondItem="d6E-M7-PcB" secondAttribute="trailing" constant="8" id="IJI-3u-F5G"/>
                                             <constraint firstAttribute="trailing" secondItem="BzD-rp-ny0" secondAttribute="trailing" constant="8" id="KPk-MG-0S7"/>
                                             <constraint firstItem="gNk-8m-mNg" firstAttribute="centerX" secondItem="Hi3-wb-ix0" secondAttribute="centerX" id="Mlg-9s-PA1"/>
-                                            <constraint firstItem="fEt-ye-25g" firstAttribute="top" secondItem="P67-ed-p31" secondAttribute="bottom" constant="8" id="REL-Ik-byo"/>
+                                            <constraint firstItem="fEt-ye-25g" firstAttribute="top" secondItem="P67-ed-p31" secondAttribute="bottom" constant="8" symbolic="YES" id="QYj-wf-bXG"/>
                                             <constraint firstItem="P67-ed-p31" firstAttribute="top" secondItem="ey9-BE-Ydd" secondAttribute="bottom" constant="8" id="WVd-Rj-xLJ"/>
                                             <constraint firstItem="gNk-8m-mNg" firstAttribute="width" secondItem="BzD-rp-ny0" secondAttribute="width" id="YYT-XM-aVS"/>
                                             <constraint firstItem="9TT-bs-c3q" firstAttribute="top" secondItem="Hi3-wb-ix0" secondAttribute="top" constant="8" id="bAu-jg-6DP"/>
@@ -240,6 +283,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="VQ8-et-e5l"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="cursusTableView" destination="gNk-8m-mNg" id="AkC-PT-4p0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ynn-ql-5EN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
