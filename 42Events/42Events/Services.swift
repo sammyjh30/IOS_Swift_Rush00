@@ -69,4 +69,38 @@ class Client {
         }
         task.resume()
     }
+    
+    //GET JSON events object
+    func getEventsInfo(token: String, completion: @escaping (_ events: [String]) -> ()) {
+        //setup URL and headers
+        let url = URL(string:"https://api.intra.42.fr/v2/events?&filter[future]=true")!
+        let headers = [ "Authorization": "Bearer \(token)"]
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        //make request task
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            if let error = error {
+                print("error: \(error)")
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    print("statusCode: \(response.statusCode)")
+                }
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    do {
+                        let jData = try JSONSerialization.jsonObject(with: data, options: []) as! [NSDictionary]
+                        print(jData)
+                        completion(self.events)
+                    }
+                        //                        print(self.cursusNames, self.cursusLevels)
+                    catch let er {
+                        print(er)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
 }
