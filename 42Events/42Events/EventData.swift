@@ -22,16 +22,23 @@ class EventData : NSObject{
     var cursus_ids:[Int]
     
     init(event:[String:Any]){
-        self.id         = event["id"] as? Int
-        self.name       = event["name"] as! String
-        self.desc       = event["description"] as! String
-        self.location   = event["location"] as! String
-        self.kind       = event["kind"] as! String
-        self.max_subs   = event["max_subs"] as? Int
-        self.nbr_subs   = event["nbr_subs"] as? Int
-        self.begin_at   = event["begin_at"] as! String
-        self.end_at     = event["end_at"] as! String
-        self.campus_ids = event["campus_ids"] as! [Int]
-        self.cursus_ids = event["cursus_ids"] as! [Int]
+        self.id         = event["id"] as? Int ?? 0
+        self.name       = event["name"] as? String ?? ""
+        self.desc       = event["description"] as? String ?? ""
+        self.location   = event["location"] as? String ?? ""
+        self.kind       = event["kind"] as? String ?? ""
+        self.max_subs   = event["max_subs"] as? Int ?? 0
+        self.nbr_subs   = event["nbr_subs"] as? Int ?? 0
+        self.begin_at   = event["begin_at"] as? String ?? ""
+        self.end_at     = event["end_at"] as? String ?? ""
+        self.campus_ids = event["campus_ids"] as? [Int] ?? [0]
+        self.cursus_ids = event["cursus_ids"] as? [Int] ?? [0]
+    }
+//    override var description: (String) -> String {
+//        return ("\(id)")
+//    }
+    
+    override var description: String {
+        return "\(self.id) of \(self.name)"
     }
 }
