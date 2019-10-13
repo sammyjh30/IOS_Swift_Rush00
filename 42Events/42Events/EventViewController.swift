@@ -26,16 +26,27 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
         name.text = data?.name
+        name.isUserInteractionEnabled = false
         nSub.text = data?.nSub
+        nSub.isUserInteractionEnabled = false
         mSub.text = data?.mSub
+        mSub.isUserInteractionEnabled = false
         desc.text = data?.desc
+        desc.isUserInteractionEnabled = false
         date.text = data?.date
+        date.isUserInteractionEnabled = false
         bTim.text = data?.bTim
+        bTim.isUserInteractionEnabled = false
         eTim.text = data?.eTim
+        eTim.isUserInteractionEnabled = false
         dura.text = data?.dura
+        dura.isUserInteractionEnabled = false
         locn.text = data?.locn
+        locn.isUserInteractionEnabled = false
         kind.text = data?.kind
+        kind.isUserInteractionEnabled = false
     }
 
 
