@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class AlertHelper {
 //    ALERT_MESSAGE
     func showAlert(fromController controller: UIViewController) {
@@ -22,25 +21,25 @@ class LoginViewController: UIViewController {
 //    IMAGES
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var logoImage: UIImageView!
-    
+
 //    STACKVIEW
     @IBOutlet weak var stackView: UIStackView!
-    
+
 //    TEXT_FIELD
-    @IBOutlet fileprivate var usernameTextField: UITextField!
-    @IBOutlet fileprivate var passwdTextField: UITextField!
-    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwdTextField: UITextField!
+
 //    LOGIN_BUTTON
     @IBOutlet weak var loginButton: UIButton!
+    let client = Client()
     @IBAction func loginButtonPress(_ sender: Any) {
-//        https://CeckUserHere
         let loadicon = loadingIconStart()
         if usernameTextField.text! != "" && passwdTextField.text! != "" {
             //BEGIN LOGIN PROCESS
             loginUser(input: usernameTextField.text!)
-            loadLoggedInScreen()
-            loadingIconStop(activityIndicator: loadicon)
-
+            sleep(2)
+            self.loadLoggedInScreen()
+            self.loadingIconStop(activityIndicator: loadicon)
         }
         else {
             let alert = AlertHelper()
@@ -48,7 +47,7 @@ class LoginViewController: UIViewController {
             loadingIconStop(activityIndicator: loadicon)
         }
     }
-    
+
 //LOGIN USER, GET TOKEN, GET USER DATA
     func loginUser(input: String) {
         if input == "" {
@@ -58,8 +57,9 @@ class LoginViewController: UIViewController {
         else {
            print("User is \(input)")
         }
-        
-        let client = Client()
+
+
+
         //get token
         client.genTok{ (token) in
             print("Token is \(token)")
@@ -69,22 +69,22 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
+
 //    View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTextField.text = ""
-        passwdTextField.text = ""
+        usernameTextField.text = "agabrie"
+        passwdTextField.text = "ajbaDOIUB"
 
 //        if UIDevice.current.orientation.isLandscape {}
     }
-    
+
 //    Hides Navbar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
+
 //    Loads Icon
     func loadingIconStart () -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -94,16 +94,17 @@ class LoginViewController: UIViewController {
         activityIndicator.startAnimating()
         return activityIndicator
     }
-    
+
 //    Stops Icon Load
     func loadingIconStop(activityIndicator: UIActivityIndicatorView) {
         activityIndicator.stopAnimating()
     }
-    
+
 //    Loads Logged In Screen
     func loadLoggedInScreen() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
+        loggedInViewController.clientlogged = client
         self.navigationController?.pushViewController(loggedInViewController, animated: true)
 //        self.present(loggedInViewController, animated: true, completion: nil)
     }
