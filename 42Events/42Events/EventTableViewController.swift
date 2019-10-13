@@ -25,43 +25,42 @@ struct CellData {
 
 class EventTableViewController: UITableViewController {
 
-    var data = [CellData]()
-    var dataToPass: CellData?
     var client = Client()
     var conn = APIConnection()
+    var dataToPass: EventData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Events are here! Use client.events.whateveryouwant")
-//        print(client.events)
-        data = [CellData(name: "Free CommServ", desc: "Come get ya CommServ, we know how much you love doing shit for us so come fufill your dreams.", date: "12-12-2012", nSub: "100", mSub: "120", locn: "Waterfront Campus", kind: "The Best Kind", dura: "8 hours", bTim: "12:12", eTim: "20:12")]
         
         self.tableView.register(EventCell.self, forCellReuseIdentifier: "EventCell")
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 80
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return client.events.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! EventCell
         
         cell.sizeToFit()
-        cell.name = data[indexPath.row].name
-        cell.desc = data[indexPath.row].desc
-        cell.date = data[indexPath.row].date
+        cell.name = client.events[indexPath.row].name
+        cell.desc = client.events[indexPath.row].desc
+        cell.date = client.events[indexPath.row].begin_at
         cell.layoutIfNeeded()
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dataToPass = data[0]
 
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
+        dataToPass = client.events[indexPath.row]
         performSegue(withIdentifier: "passEventData", sender: row)
     }
     
