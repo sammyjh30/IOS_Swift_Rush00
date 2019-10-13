@@ -27,10 +27,13 @@ class EventTableViewController: UITableViewController {
 
     var data = [CellData]()
     var dataToPass: CellData?
+    var client = Client()
+    var conn = APIConnection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Events are here! Use client.events.whateveryouwant")
+//        print(client.events)
         data = [CellData(name: "Free CommServ", desc: "Come get ya CommServ, we know how much you love doing shit for us so come fufill your dreams.", date: "12-12-2012", nSub: "100", mSub: "120", locn: "Waterfront Campus", kind: "The Best Kind", dura: "8 hours", bTim: "12:12", eTim: "20:12")]
         
         self.tableView.register(EventCell.self, forCellReuseIdentifier: "EventCell")

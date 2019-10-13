@@ -70,9 +70,6 @@ class LoginViewController: UIViewController {
             //user requests in here with token
             self.client.getUserInfo(token: token, username: "\(input)") { firstName,lastName,login,photo,userLevel, cursusNames,cursusLevels  in
                 print("User found with Firstname: \(firstName), Lastname: \(lastName), Login: \(login) Photo: \(photo) Userlevel: \(userLevel), CursusNames: \(cursusNames), CursusLevels: \(cursusLevels)")
-                self.client.getEventsInfo(token: token) { events in
-                    print("EVENTS")
-                }
             }
         }
     }
