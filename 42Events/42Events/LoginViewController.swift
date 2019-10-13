@@ -27,18 +27,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     
 //    TEXT_FIELD
-    @IBOutlet fileprivate var usernameTextField: UITextField!
-    @IBOutlet fileprivate var passwdTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwdTextField: UITextField!
     
 //    LOGIN_BUTTON
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginButtonPress(_ sender: Any) {
-//        https://CeckUserHere
         let loadicon = loadingIconStart()
-        if usernameTextField.text! == "" && passwdTextField.text! == "" {
+        if usernameTextField.text! != "" && passwdTextField.text! != "" {
             loadLoggedInScreen()
             loadingIconStop(activityIndicator: loadicon)
-            
         }
         else {
             let alert = AlertHelper()
@@ -81,6 +79,7 @@ class LoginViewController: UIViewController {
     func loadLoggedInScreen() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
+        loggedInViewController.firstname = usernameTextField.text!
         self.navigationController?.pushViewController(loggedInViewController, animated: true)
 //        self.present(loggedInViewController, animated: true, completion: nil)
     }

@@ -15,17 +15,29 @@ class LoggedInViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     
 //    TEXT_FIELD
-    @IBOutlet weak var firstnameTextField: UILabel!
-    @IBOutlet weak var lastnameTextField: UILabel!
-    @IBOutlet weak var levelTextField: UILabel!
+    @IBOutlet weak var firstnameTextField: UILabel?
+    @IBOutlet weak var lastnameTextField: UILabel?
+    @IBOutlet weak var levelTextField: UILabel?
+    
+//    PROGRESS_VIEW
+    @IBOutlet weak var progressView: UIProgressView!
     
 //    EVENTS_BUTTON
     @IBOutlet weak var eventsButton: UIButton!
-    
     @IBAction func eventsButtonPress(_ sender: Any) {
     }
+    
+    var firstname:String = ""
+    var lastname:String = ""
+    var level:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstnameTextField?.text = firstname
+        lastnameTextField?.text = lastname
+        levelTextField?.text = level
+        
 //        self.navigationItem.leftBarButtonItem?.title = "Logout"
         viewWillDisappear(false)
     }
