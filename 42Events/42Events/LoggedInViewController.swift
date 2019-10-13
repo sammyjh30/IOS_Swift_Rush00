@@ -20,20 +20,30 @@ class LoggedInViewController: UIViewController {
     @IBOutlet weak var firstnameTextField: UILabel?
     @IBOutlet weak var lastnameTextField: UILabel?
     @IBOutlet weak var levelTextField: UILabel?
-    
+
 //    EVENTS_BUTTON
     @IBOutlet weak var eventsButton: UIButton!
-    
     @IBAction func eventsButtonPress(_ sender: Any) {
     }
+
+    var firstname:String = ""
+    var lastname:String = ""
+    var level:String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        firstnameTextField?.text = firstname
+        lastnameTextField?.text = lastname
+        levelTextField?.text = level
+
+//        self.navigationItem.leftBarButtonItem?.title = "Logout"
         viewWillDisappear(false)
         userLoginTextField?.text = clientlogged.userLogin
         firstnameTextField?.text = clientlogged.userFirstName
         lastnameTextField?.text = clientlogged.userLastName
     }
-    
+
 //    Shows Navbar
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

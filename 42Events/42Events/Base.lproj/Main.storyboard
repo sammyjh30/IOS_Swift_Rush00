@@ -183,7 +183,7 @@
                                                         </constraints>
                                                     </progressView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rtS-Yb-ZAK">
-                                                        <rect key="frame" x="0.0" y="105" width="355" height="331.5"/>
+                                                        <rect key="frame" x="0.0" y="105" width="355" height="331"/>
                                                         <subviews>
                                                             <view tag="27" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwq-rC-EMi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="20"/>
@@ -212,12 +212,12 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqf-HK-ndQ">
-                                                                <rect key="frame" x="0.0" y="50" width="355" height="281.5"/>
+                                                                <rect key="frame" x="0.0" y="50" width="355" height="281"/>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gm-Rs-yYd">
-                                                        <rect key="frame" x="0.0" y="436.5" width="355" height="8.5"/>
+                                                        <rect key="frame" x="0.0" y="436" width="355" height="9"/>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -270,6 +270,7 @@
                         <outlet property="firstnameTextField" destination="LZJ-CD-8kL" id="j6q-bn-iWo"/>
                         <outlet property="lastnameTextField" destination="ey9-BE-Ydd" id="nQ0-9x-leG"/>
                         <outlet property="levelTextField" destination="P67-ed-p31" id="C8r-kS-pOf"/>
+                        <outlet property="progressView" destination="fEt-ye-25g" id="h1j-mI-phM"/>
                         <outlet property="userImage" destination="d6E-M7-PcB" id="gsc-Fl-zba"/>
                         <outlet property="userLoginTextField" destination="9TT-bs-c3q" id="ZCh-eD-AQJ"/>
                     </connections>
