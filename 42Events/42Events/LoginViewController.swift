@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
 //    LOGIN_BUTTON
     @IBOutlet weak var loginButton: UIButton!
     let client = Client()
+    let conn:APIConnection = APIConnection()
     @IBAction func loginButtonPress(_ sender: Any) {
         let loadIcon = loadingIconStart()
         if usernameTextField.text! != "" && passwdTextField.text! != "" {
@@ -64,7 +65,7 @@ class LoginViewController: UIViewController {
         }
 
         //get token
-        client.genTok{ (token) in
+        conn.genTok{ (token) in
             print("Token is \(token)")
             //user requests in here with token
             self.client.getUserInfo(token: token, username: "\(input)") { firstName,lastName,login,photo,userLevel, cursusNames,cursusLevels  in
@@ -107,6 +108,7 @@ class LoginViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
         loggedInViewController.clientlogged = client
+        loggedInViewController.connection = conn
         self.navigationController?.pushViewController(loggedInViewController, animated: true)
 //        self.present(loggedInViewController, animated: true, completion: nil)
     }

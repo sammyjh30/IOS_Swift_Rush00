@@ -14,6 +14,7 @@ class LoggedInViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     var clientlogged:Client = Client()
+    var connection:APIConnection = APIConnection()
     @IBOutlet weak var userLoginTextLabel: UILabel!
     
     //    TEXT_FIELD
@@ -26,7 +27,32 @@ class LoggedInViewController: UIViewController {
 //    EVENTS_BUTTON
     @IBOutlet weak var eventButton: UIButton!
     @IBAction func eventsButtonPress(_ sender: Any) {
+        //load events
+        getEvents()
+        sleep(2)
+        loadEventsScreen()
     }
+    
+    func getEvents() {
+        //get token
+        connection.genTok{ (token) in
+            print("Token is \(token)")
+            //user requests in here with token
+            self.clientlogged.getEventsInfo(token: token) { events in
+//                print("EVENTS")
+            }
+        }
+    }
+    
+    func loadEventsScreen() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let eventTableViewController = storyBoard.instantiateViewController(withIdentifier: "EventTableViewController") as! EventTableViewController
+        eventTableViewController.client = clientlogged
+        eventTableViewController.conn = connection
+        self.navigationController?.pushViewController(eventTableViewController, animated: true)
+        //        self.present(loggedInViewController, animated: true, completion: nil)
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -18,6 +18,7 @@
 		62B5140323533B4900FBFD18 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5140223533B4900FBFD18 /* EventCell.swift */; };
 		62B5140623533E8800FBFD18 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5140523533E8800FBFD18 /* EventTableViewController.swift */; };
 		4044C1222352FB9800819EDE /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044C1212352FB9800819EDE /* EventData.swift */; };
+		40CE7B1323536224002B9302 /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE7B1223536224002B9302 /* APIConnection.swift */; };
 		673C702C2352282F00608C2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673C70292352282E00608C2C /* LoginViewController.swift */; };
 		673C702D2352282F00608C2C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673C702A2352282E00608C2C /* Extensions.swift */; };
 		673C702E2352282F00608C2C /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673C702B2352282E00608C2C /* LoggedInViewController.swift */; };
@@ -59,6 +60,7 @@
 		62B5140223533B4900FBFD18 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		62B5140523533E8800FBFD18 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		4044C1212352FB9800819EDE /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
+		40CE7B1223536224002B9302 /* APIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnection.swift; sourceTree = "<group>"; };
 		673C70292352282E00608C2C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		673C702A2352282E00608C2C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		673C702B2352282E00608C2C /* LoggedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				27C5E86E2351D3D800E32B1A /* LaunchScreen.storyboard */,
 				27C5E8712351D3D800E32B1A /* Info.plist */,
 				EA609DAA2352492F002F3B36 /* Services.swift */,
+				40CE7B1223536224002B9302 /* APIConnection.swift */,
 			);
 			path = 42Events;
 			sourceTree = "<group>";
@@ -284,6 +287,8 @@
 				673C702C2352282F00608C2C /* LoginViewController.swift in Sources */,
 				27C5E8682351D3D400E32B1A /* EventViewController.swift in Sources */,
 				4044C1222352FB9800819EDE /* EventData.swift in Sources */,
+				40CE7B1323536224002B9302 /* APIConnection.swift in Sources */,
+				27C5E8682351D3D400E32B1A /* ViewController.swift in Sources */,
 				EA609DAB2352492F002F3B36 /* Services.swift in Sources */,
 				62B5140323533B4900FBFD18 /* EventCell.swift in Sources */,
 				673C702E2352282F00608C2C /* LoggedInViewController.swift in Sources */,
