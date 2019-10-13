@@ -266,12 +266,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="tcp-Ci-6zP"/>
                     <connections>
-                        <outlet property="backgroundImage" destination="xFF-Qi-M3B" id="adQ-l0-kQ5"/>
-                        <outlet property="eventsButton" destination="BzD-rp-ny0" id="EDy-qX-Zxj"/>
-                        <outlet property="firstnameTextField" destination="LZJ-CD-8kL" id="j6q-bn-iWo"/>
-                        <outlet property="lastnameTextField" destination="ey9-BE-Ydd" id="nQ0-9x-leG"/>
-                        <outlet property="levelTextField" destination="P67-ed-p31" id="C8r-kS-pOf"/>
-                        <outlet property="userImage" destination="d6E-M7-PcB" id="gsc-Fl-zba"/>
+                        <outlet property="backgroundImage" destination="xFF-Qi-M3B" id="GaC-24-tDq"/>
+                        <outlet property="eventButton" destination="BzD-rp-ny0" id="jfY-dc-va4"/>
+                        <outlet property="firstnameTextLabel" destination="LZJ-CD-8kL" id="Mnp-uP-FYc"/>
+                        <outlet property="lastnameTextLabel" destination="ey9-BE-Ydd" id="GSC-Tv-VF4"/>
+                        <outlet property="levelTextLabel" destination="P67-ed-p31" id="WnO-5H-dad"/>
+                        <outlet property="userImage" destination="d6E-M7-PcB" id="ACZ-5U-xhK"/>
+                        <outlet property="userLoginTextLabel" destination="9TT-bs-c3q" id="SIL-4z-mUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jt5-yd-6vP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
