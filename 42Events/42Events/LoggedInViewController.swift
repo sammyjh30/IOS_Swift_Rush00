@@ -64,9 +64,15 @@ class LoggedInViewController: UIViewController {
         lastnameTextLabel?.text = clientlogged.userLastName
     }
 
-//    Shows Navbar
+    @IBOutlet weak var backButton: UINavigationItem!
+    
+    //    Shows Navbar
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParent {
+            print("Disconnect from API")
+        }
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
