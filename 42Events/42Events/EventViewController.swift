@@ -34,7 +34,6 @@ class EventViewController: UIViewController {
         mSub.text = data?.mSub
         mSub.isUserInteractionEnabled = false
         desc.text = data?.desc
-        desc.isUserInteractionEnabled = false
         date.text = data?.date
         date.isUserInteractionEnabled = false
         bTim.text = data?.bTim
