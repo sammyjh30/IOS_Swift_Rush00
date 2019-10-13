@@ -97,8 +97,8 @@ class Client {
                             }
                             
                         }
-//                        print(self.cursusNames, self.cursusLevels)
-    completion(self.userFirstName, self.userLastName, self.userLogin, self.userPhoto,self.userLevel, self.cursusNames, self.cursusLevels)
+                        //                        print(self.cursusNames, self.cursusLevels)
+                        completion(self.userFirstName, self.userLastName, self.userLogin, self.userPhoto,self.userLevel, self.cursusNames, self.cursusLevels)
                     } catch let er {
                         print(er)
                     }
