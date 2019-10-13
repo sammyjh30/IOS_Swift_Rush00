@@ -22,8 +22,10 @@ class Client {
         var userLastName: String = ""
         var userLogin: String = ""
         var userPhoto: String = ""
-        var curses: String = "" //TODO
-        
+        //var curses: String = ""
+        var cursusNames: [String] = []
+        var cursusLevels: [Double] = []
+    
         //POST generates the auth02 token, returns token as string
         func genTok(completion: @escaping (_ token: String) -> ()) {
                 //setup URL and headers
@@ -56,7 +58,7 @@ class Client {
             }
         
         //GET gets user info (firstName, lastName, login, photo) and returns as string
-        func getUserInfo(token: String,username: String,  completion: @escaping (_ firstName: String, _ lastName: String, _ login: String, _ photo:String) -> ()) {
+    func getUserInfo(token: String,username: String,  completion: @escaping (_ firstName: String, _ lastName: String, _ login: String, _ photo:String, _ cursusName:[String], _ cursusLevel:[Double]) -> ()) {
             //setup URL and headers
                 let url = URL(string:"https://api.intra.42.fr/v2/users/\(username)/")!
                 let headers = [ "Authorization": "Bearer \(token)"]
@@ -73,19 +75,49 @@ class Client {
                             print("statusCode: \(response.statusCode)")
                         }
                         if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                            //print("data: \(dataString)")
-                            let jData = try? JSONSerialization.jsonObject(with: data, options: [])
-                            if let jData = jData as? [String: Any] {
-                                //print(jData)
-                                //assign found data to variables
+                            do {
+                                let jData = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                                let cursesList: [NSDictionary] = (jData["cursus_users"] as? [NSDictionary])!
                                 self.userFirstName = jData["first_name"] as? String ?? ""
                                 self.userLastName = jData["last_name"] as? String ?? ""
                                 self.userLogin = jData["login"] as? String ?? ""
                                 self.userPhoto = jData["image_url"] as? String ?? ""
-                                //TODO: Get curses and parse name & level
-//                                print("User found with Firstname: \(self.userFirstName), Lastname: \(self.userLastName), Login: \(self.userLogin) Photo: \(self.userPhoto)")
-                                completion(self.userFirstName, self.userLastName, self.userLogin, self.userPhoto)
-                            }
+                                
+                                for elem in cursesList {
+                                    //let name = elem["cursus_users"] as! NSDictionary
+                                    //print(name)
+                                    let level = elem["level"]
+                                    print(level)
+                                    let skillsList: [NSDictionary] = (elem["skills"] as? [NSDictionary])!
+                                    for elem in skillsList{
+                                        let algos = elem["name"]
+                                        let level = elem["level"]
+                                        self.cursusNames.append(algos as! String)
+                                        self.cursusLevels.append(level as! Double)
+                                    }
+                                    
+                                }
+                                print(self.cursusNames, self.cursusLevels)
+                                completion(self.userFirstName, self.userLastName, self.userLogin, self.userPhoto, self.cursusNames, self.cursusLevels)
+                            } catch let er {
+                                    print(er)
+                                }
+
+                            //print("data: \(dataString)")
+//                            let jData = try? JSONSerialization.jsonObject(with: data, options: [])
+//                            if let jData = jData as? [String: Any] {
+//                                //print(jData)
+//                                //assign found data to variables
+//                                self.userFirstName = jData["first_name"] as? String ?? ""
+//                                self.userLastName = jData["last_name"] as? String ?? ""
+//                                self.userLogin = jData["login"] as? String ?? ""
+//                                self.userPhoto = jData["image_url"] as? String ?? ""
+//                                //TODO: Get curses and parse name & level
+//
+//                                print(self.cursusNames)
+//                                print(self.cursusLevels)
+//                                completion(self.userFirstName, self.userLastName, self.userLogin, self.userPhoto, self.cursusNames, self.cursusLevels)
+//                            }
                         }
                     }
                 }
