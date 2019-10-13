@@ -14,6 +14,7 @@ class LoggedInViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     var clientlogged:Client = Client()
+    var connection:APIConnection = APIConnection()
     @IBOutlet weak var userLoginTextLabel: UILabel!
     
     //    TEXT_FIELD
