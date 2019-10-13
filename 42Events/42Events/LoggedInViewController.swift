@@ -96,6 +96,10 @@ class LoggedInViewController: UIViewController, UITableViewDataSource, UITableVi
     //    Shows Navbar
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParent {
+            print("Disconnect from API")
+        }
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
