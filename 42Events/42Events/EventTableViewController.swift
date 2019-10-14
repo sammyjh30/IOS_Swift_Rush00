@@ -42,7 +42,11 @@ class EventTableViewController: UITableViewController, UISearchBarDelegate {
         cell.desc = filteredData[indexPath.row].desc
         cell.date = filteredData[indexPath.row].begin_at
         cell.layoutIfNeeded()
-        
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = UIColor.gray.cgColor
+
         return cell
     }
     

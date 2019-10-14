@@ -18,8 +18,8 @@ class EventCell: UITableViewCell {
     var nameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 17.0)
+        label.textColor = .white
         return label
     }()
     
@@ -27,7 +27,7 @@ class EventCell: UITableViewCell {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .black
+        label.textColor = .white
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -38,7 +38,7 @@ class EventCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.right
         label.font = UIFont.italicSystemFont(ofSize: 12)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         return label
     }()
     

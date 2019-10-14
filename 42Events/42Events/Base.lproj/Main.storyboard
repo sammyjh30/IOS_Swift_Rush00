@@ -533,7 +533,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="L5q-W7-sPu">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Oh6-Uw-bjW">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ttl-LH-gXp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ttl-LH-gXp">
                                 <rect key="frame" x="276" y="4" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29130007870000002" green="0.6631594649" blue="0.67581602519999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -588,11 +588,10 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="scn-Xq-bBN" id="Rew-h3-M0c">
-                                    <rect key="frame" x="0.0" y="0.0" width="347.5" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="0.17686954140663147" green="0.19651037454605103" blue="0.31034475564956665" alpha="0.74839469178082196" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.17686954140663147" green="0.19651037454605103" blue="0.31034475564956665" alpha="0.50409353599999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="Lyu-gO-Nse" kind="push" identifier="passEventData" id="Y8X-0r-adP"/>
                                 </connections>
