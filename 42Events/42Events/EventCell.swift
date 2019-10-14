@@ -18,8 +18,8 @@ class EventCell: UITableViewCell {
     var nameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 17.0)
+        label.textColor = .white
         return label
     }()
     
@@ -27,7 +27,7 @@ class EventCell: UITableViewCell {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .black
+        label.textColor = .white
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -38,7 +38,7 @@ class EventCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.right
         label.font = UIFont.italicSystemFont(ofSize: 12)
-        label.textColor = .darkGray
+        label.textColor = .lightGray
         return label
     }()
     
@@ -75,7 +75,7 @@ class EventCell: UITableViewCell {
             descLabel.text = desc
         }
         if let date = date {
-            dateLabel.text = date
+            dateLabel.text = formatDate(date: date)
         }
     }
     
@@ -94,4 +94,12 @@ class EventCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func formatDate(date: String) -> String{
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        //format.locale = Locale(identifier: "en_US_POSIX")
+        let newDate = format.date(from: date)
+        format.dateFormat = "yyyy-MM-dd"
+        return format.string(from: newDate ?? Date())
+    }
 }
