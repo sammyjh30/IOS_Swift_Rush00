@@ -66,7 +66,6 @@ class EventTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         filteredData = (searchText.isEmpty) ? client.events : (searchText.contains("Kind: ")) ? client.events.filter{$0.kind.range(of: searchText.components(separatedBy: "Kind: ")[1], options: .caseInsensitive) != nil} : (searchText.contains("Campus: ")) ? client.events.filter{String($0.campus_ids[0]).range(of: searchText.components(separatedBy: "Campus: ")[1], options: .caseInsensitive) != nil} : (searchText.contains("Cursus: ")) ? client.events.filter{String($0.cursus_ids[0]).range(of: searchText.components(separatedBy: "Cursus: ")[1], options: .caseInsensitive) != nil} : client.events
 
         self.tableView.reloadData()
