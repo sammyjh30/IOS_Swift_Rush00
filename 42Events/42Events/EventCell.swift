@@ -75,7 +75,7 @@ class EventCell: UITableViewCell {
             descLabel.text = desc
         }
         if let date = date {
-            dateLabel.text = date
+            dateLabel.text = formatDate(date: date)
         }
     }
     
@@ -94,4 +94,12 @@ class EventCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func formatDate(date: String) -> String{
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        //format.locale = Locale(identifier: "en_US_POSIX")
+        let newDate = format.date(from: date)
+        format.dateFormat = "yyyy-MM-dd"
+        return format.string(from: newDate ?? Date())
+    }
 }
