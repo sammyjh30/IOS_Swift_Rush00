@@ -77,8 +77,8 @@ class LoginViewController: UIViewController {
 //    View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTextField.text = ""
-        passwdTextField.text = ""
+        usernameTextField.text = "agabrie"
+        passwdTextField.text = "56 "
 //        if UIDevice.current.orientation.isLandscape {}
     }
 
