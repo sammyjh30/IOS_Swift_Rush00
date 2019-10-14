@@ -27,8 +27,8 @@ class EventData : NSObject{
         self.desc       = event["description"] as? String ?? ""
         self.location   = event["location"] as? String ?? ""
         self.kind       = event["kind"] as? String ?? ""
-        self.max_subs   = event["max_subs"] as? Int ?? 0
-        self.nbr_subs   = event["nbr_subs"] as? Int ?? 0
+        self.max_subs   = event["max_people"] as? Int ?? 0
+        self.nbr_subs   = event["nbr_subscribers"] as? Int ?? 0
         self.begin_at   = event["begin_at"] as? String ?? ""
         self.end_at     = event["end_at"] as? String ?? ""
         self.campus_ids = event["campus_ids"] as? [Int] ?? [0]
