@@ -48,6 +48,13 @@ class LoggedInViewController: UIViewController, UITableViewDataSource, UITableVi
             self.clientlogged.getEventsInfo(token: token) { events in
                 //                print("EVENTS")
             }
+            self.clientlogged.getCampusInfo(token: token) { campuses in
+                print(campuses)
+                self.clientlogged.getCursusInfo(token: token) { cursuses in
+                    print(cursuses)
+                }
+            }
+
         }
     }
 
