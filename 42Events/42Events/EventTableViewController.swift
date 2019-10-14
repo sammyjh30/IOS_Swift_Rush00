@@ -66,7 +66,35 @@ class EventTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = (searchText.isEmpty) ? client.events : (searchText.contains("Kind: ")) ? client.events.filter{$0.kind.range(of: searchText.components(separatedBy: "Kind: ")[1], options: .caseInsensitive) != nil} : (searchText.contains("Campus: ")) ? client.events.filter{String($0.campus_ids[0]).range(of: searchText.components(separatedBy: "Campus: ")[1], options: .caseInsensitive) != nil} : (searchText.contains("Cursus: ")) ? client.events.filter{String($0.cursus_ids[0]).range(of: searchText.components(separatedBy: "Cursus: ")[1], options: .caseInsensitive) != nil} : client.events
+        if (searchText.isEmpty) {
+            filteredData = client.events
+        } else if (searchText.contains("Kind: ")) {
+            filteredData = client.events.filter{$0.kind.range(of: searchText.components(separatedBy: "Kind: ")[1], options: .caseInsensitive) != nil}
+        } else if (searchText.contains("Campus: ")) {
+            let campus = searchText.components(separatedBy: "Campus: ")[1]
+            var result: String?
+            var index = 0
+            for elem in client.campuses {
+                if campus == elem.name {
+                    result = String(client.campuses[index].id!)
+                }
+                index += 1
+            }
+            filteredData = client.events.filter{String($0.campus_ids[0]).range(of: result ?? "no such campus", options: .caseInsensitive) != nil}
+        } else if (searchText.contains("Cursus: ")) {
+            let cursus = searchText.components(separatedBy: "Cursus: ")[1]
+            var result: String?
+            var index = 0
+            for elem in client.cursuses {
+                if cursus == elem.name {
+                    result = String(client.cursuses[index].id!)
+                }
+                index += 1
+            }
+            filteredData = client.events.filter{String($0.cursus_ids[0]).range(of: result ?? "no such cursus", options: .caseInsensitive) != nil}
+        } else {
+            filteredData = client.events
+        }
 
         self.tableView.reloadData()
     }
